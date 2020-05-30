@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Pushing ! counter reaching C++ will count thrice a time:',
+              'Calling C code took some milliseconds:',
             ),
             Text(
               '$_counter',
