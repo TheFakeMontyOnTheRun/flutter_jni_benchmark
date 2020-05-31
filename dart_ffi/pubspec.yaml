@@ -26,6 +26,8 @@ dependencies:
     sdk: flutter
   flutternativecodeplugin:
     path: ../flutter_native_code_plugin
+  othernativecodeplugin:
+    path: ../other_native_code_plugin
 
 
   # The following adds the Cupertino Icons font to your application.

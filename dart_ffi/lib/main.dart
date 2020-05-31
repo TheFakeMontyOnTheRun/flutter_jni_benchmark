@@ -52,6 +52,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _value = 0;
 
   void _incrementCounter() {
     setState(() {
@@ -62,9 +63,68 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       int t0 = new DateTime.now().millisecondsSinceEpoch;
 
-      for( int i = 0 ; i < 1024; ++i ) {
-        _counter = nativeCounter();
-      }
+    //  for( int i = 0 ; i < 1024; ++i ) {
+        _value = nativeCounter();
+      //}
+
+      int t1 = new DateTime.now().millisecondsSinceEpoch;
+
+      _counter = (t1 - t0);
+
+    });
+  }
+
+  void _incrementOtherCounter() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      int t0 = new DateTime.now().millisecondsSinceEpoch;
+
+      //  for( int i = 0 ; i < 1024; ++i ) {
+      _value = nativeCounterAlternative();
+      //}
+
+      int t1 = new DateTime.now().millisecondsSinceEpoch;
+
+      _counter = (t1 - t0);
+    });
+  }
+
+  void _incrementYetOtherCounter() {
+      setState(() {
+        // This call to setState tells the Flutter framework that something has
+        // changed in this State, which causes it to rerun the build method below
+        // so that the display can reflect the updated values. If we changed
+        // _counter without calling setState(), then the build method would not be
+        // called again, and so nothing would appear to happen.
+        int t0 = new DateTime.now().millisecondsSinceEpoch;
+
+        //  for( int i = 0 ; i < 1024; ++i ) {
+        _value = nativeCounterYetAnother();
+        //}
+
+        int t1 = new DateTime.now().millisecondsSinceEpoch;
+
+        _counter = (t1 - t0);
+
+      });
+  }
+
+  void _useOtherLib() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      int t0 = new DateTime.now().millisecondsSinceEpoch;
+
+      //  for( int i = 0 ; i < 1024; ++i ) {
+      _value = nativeCounterFromOtherLib();
+      //}
 
       int t1 = new DateTime.now().millisecondsSinceEpoch;
 
@@ -114,6 +174,33 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+
+            Text(
+              'Counter value:',
+            ),
+            Text(
+              '$_value',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+
+            FloatingActionButton(
+              onPressed: _incrementOtherCounter,
+              tooltip: 'Increment?',
+              child: Icon(Icons.add),
+            ),
+
+            FloatingActionButton(
+              onPressed: _incrementYetOtherCounter,
+              tooltip: 'Increment?',
+              child: Icon(Icons.add),
+            ),
+
+            FloatingActionButton(
+              onPressed: _useOtherLib,
+              tooltip: 'Increment?',
+              child: Icon(Icons.access_alarms),
+            ),
+
           ],
         ),
       ),
